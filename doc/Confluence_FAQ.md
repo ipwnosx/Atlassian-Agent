@@ -1,15 +1,14 @@
 # Confluence FAQ
 
-### Windows下Confluence的激活注意点
+### Confluence activation points under Windows
 
-* 不要使用start-service.bat启动（如果非要这样启动，自己去注册表改-javaagent参数）
-* 使用bin\start-confluence.bat启动
-* 在bin\setenv.bat里添加-javaagent参数
-* Windows下Confluence有个bug，需要改动setenv.bat修复
+* Do not use start-service.bat to start (if you have to start in this way, go to the registry to change the -javaagent parameter)
+* Use bin\start-confluence.bat to start
+* Add -javaagent parameter in bin\setenv.bat
+* There is a bug in Confluence under Windows, which needs to be fixed by changing setenv.bat
 
- ```bash
+  ```bash
 set CATALINA_OPTS=-Xloggc:"%atlassian_logsdir%\gc-%atlassian_timestamp%.log" %CATALINA_OPTS%
-//改成
+//Change to
 set CATALINA_OPTS=-Xloggc:"%atlassian_logsdir%\gc-%%t.log" %CATALINA_OPTS%
 ```
-
